@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Number Guessing Game</h1>
+    <p>Guess the correct number between 1 and 10:</p>
+    <input type="number" id="userGuess" min="1" max="10">
+    <button id="checkButton">Check</button>
+    <button id="clearButton">Clear</button>
+
+    <h2 id="result">Result will be displayed here</h2>
+
+    <script>
+        const correctNumber = 5; // You can change this to any other number.
+
+        const userGuessInput = document.getElementById('userGuess');
+        const checkButton = document.getElementById('checkButton');
+        const clearButton = document.getElementById('clearButton');
+        const resultElement = document.getElementById('result');
+
+        checkButton.addEventListener('click', () => {
+            const userGuess = parseInt(userGuessInput.value);
+
+            if (isNaN(userGuess)) {
+                resultElement.textContent = 'Please enter a valid number.';
+            } else if (userGuess === correctNumber) {
+                resultElement.textContent = 'Congratulations! You guessed the correct number!';
+            } else {
+                resultElement.textContent = 'Sorry, try again!';
+            }
+        });
+
+        clearButton.addEventListener('click', () => {
+            userGuessInput.value = ''; // Clear the input field
+            resultElement.textContent = 'Result will be displayed here'; // Reset the result message
+        });
+    </script>
+</body>
+</html>
+
+ 
